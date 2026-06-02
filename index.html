@@ -68,11 +68,13 @@
     }
     </script>
 
-    <!-- ═══ FONTS & ICONS ═══ -->
+    <!-- ═══ FONTS, ICONS & LEAFLET MAP ═══ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 
     <style>
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -984,7 +986,7 @@
             box-shadow: 0 4px 28px rgba(0,0,0,0.15);
             border: 3px solid var(--dark);
         }
-        .map-wrap iframe { width:100%; height:440px; display:block; border:none; }
+        #leaflet-map { width:100%; height:440px; display:block; }
 
         .area-right h3 {
             font-family: 'Oswald', sans-serif;
@@ -1307,6 +1309,7 @@
         }
 
         @media (max-width: 900px) {
+            .advocacy-layout,
             .fire-intro,
             .water-layout,
             .approach-layout,
@@ -1492,12 +1495,12 @@
                 </p>
 
                 <ul class="fire-check-list">
-                    <li><i class="fas fa-check-circle"></i> Structural integrity and char-depth assessment — what the adjuster misses</li>
-                    <li><i class="fas fa-check-circle"></i> Smoke migration mapping through walls, HVAC, and adjacent rooms</li>
-                    <li><i class="fas fa-check-circle"></i> Full insurance scope documentation to support your claim</li>
-                    <li><i class="fas fa-check-circle"></i> Asbestos and hazardous material identification in-house</li>
-                    <li><i class="fas fa-check-circle"></i> Reconstruction oversight from demo to move-back</li>
-                    <li><i class="fas fa-check-circle"></i> Direct negotiation with your insurance carrier as your public adjuster</li>
+                    <li><i class="fas fa-check-circle"></i> Full structural and smoke-migration assessment — far beyond what the carrier's adjuster will document</li>
+                    <li><i class="fas fa-check-circle"></i> Emergency stabilization and site securing in the first critical hours</li>
+                    <li><i class="fas fa-check-circle"></i> IICRC loss classification to determine what is needed and who needs to do it</li>
+                    <li><i class="fas fa-check-circle"></i> Mitigation planning developed with a certified industrial hygienist</li>
+                    <li><i class="fas fa-check-circle"></i> Coordination of vetted, specialized preferred-network contractors for each phase</li>
+                    <li><i class="fas fa-check-circle"></i> Insurance claim navigation and advocacy — Jason works for you, not the carrier</li>
                 </ul>
             </div>
         </div>
@@ -1508,37 +1511,37 @@
             <div class="fire-card">
                 <div class="fc-icon"><i class="fas fa-search"></i></div>
                 <h4>Structural Assessment</h4>
-                <p>Char depth, beam and joist integrity, load-bearing wall compromise, roof structure — documented with the detail insurance adjusters routinely underreport.</p>
+                <p>Char depth, beam and joist integrity, load-bearing wall compromise, roof structure — documented far beyond what a carrier's adjuster will commit to paper.</p>
             </div>
 
             <div class="fire-card">
                 <div class="fc-icon"><i class="fas fa-wind"></i></div>
                 <h4>Smoke &amp; Odor Migration</h4>
-                <p>Smoke travels further than the flames. We map migration into unburned areas, HVAC systems, attic spaces, and wall cavities — all eligible for your claim.</p>
+                <p>Smoke travels well beyond the fire's origin. We map migration into unburned rooms, HVAC systems, attic spaces, and wall cavities — every affected area documented.</p>
             </div>
 
             <div class="fire-card">
-                <div class="fc-icon"><i class="fas fa-hard-hat"></i></div>
+                <div class="fc-icon"><i class="fas fa-shield-alt"></i></div>
                 <h4>Emergency Stabilization</h4>
-                <p>Board-up, tarping, temporary utilities, and site security in the critical first hours after a fire — protecting the property and preserving your claim value.</p>
+                <p>Board-up, tarping, site security, and temporary utility coordination in the critical first hours — protecting the structure and locking in claim value before anything is disturbed.</p>
             </div>
 
             <div class="fire-card">
-                <div class="fc-icon"><i class="fas fa-box-open"></i></div>
-                <h4>Contents &amp; Inventory</h4>
-                <p>Full itemized documentation of damaged contents — furniture, clothing, electronics, personal property — to support the personal property portion of your claim.</p>
+                <div class="fc-icon"><i class="fas fa-clipboard-list"></i></div>
+                <h4>IICRC Loss Classification</h4>
+                <p>We classify the full scope of loss to IICRC standards. Classification determines which specialists are needed, in what sequence, and what the insurance carrier is obligated to cover.</p>
             </div>
 
             <div class="fire-card">
-                <div class="fc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                <h4>Insurance Claim Strategy</h4>
-                <p>As a licensed public adjuster, we build your claim the way carriers build theirs — with precise line-item documentation that leaves no recoverable dollar behind.</p>
+                <div class="fc-icon"><i class="fas fa-microscope"></i></div>
+                <h4>Industrial Hygienist Planning</h4>
+                <p>We develop a mitigation plan in coordination with a certified industrial hygienist — a step most contractors skip, and the one that determines whether the remediation is done correctly.</p>
             </div>
 
             <div class="fire-card">
-                <div class="fc-icon"><i class="fas fa-hammer"></i></div>
-                <h4>Full Reconstruction</h4>
-                <p>With a Class A GC license, we oversee and execute the complete rebuild — one point of contact from ash to finished home, with no handoff to unknown crews.</p>
+                <div class="fc-icon"><i class="fas fa-people-arrows"></i></div>
+                <h4>Preferred Network Coordination</h4>
+                <p>We don't do everything ourselves — we bring in the right specialists for each phase. Our preferred network is vetted, experienced, and coordinated entirely by Jason from start to finish.</p>
             </div>
         </div>
 
@@ -1553,33 +1556,33 @@
                 <span class="sec-label" style="color: var(--water);">Secondary Specialty</span>
                 <h2 class="sec-title">Catastrophic<br>Water Damage</h2>
                 <p class="sec-desc">
-                    We handle large-scale water losses — the kind that affect multiple
-                    systems, require category classification, mold remediation, and a
-                    full insurance claim. If a plumber can fix it in an afternoon,
-                    you probably don't need us. If your home was significantly altered
-                    by water, we should talk.
+                    Significant water losses only. We handle events that affect multiple
+                    systems, require IICRC classification, and carry real insurance claim
+                    implications. If a plumber can resolve it in an afternoon, we're not the
+                    right call. If water has materially altered your home — structure, systems,
+                    air quality — we should talk immediately.
                 </p>
 
                 <div class="water-points">
                     <div class="wp-item">
-                        <div class="wp-icon"><i class="fas fa-tint"></i></div>
+                        <div class="wp-icon"><i class="fas fa-clipboard-list"></i></div>
                         <div>
-                            <h5>Category 1 / 2 / 3 Classification</h5>
-                            <p>We classify loss severity to the IICRC standard, which drives your claim scope and restoration requirements.</p>
+                            <h5>IICRC Classification First</h5>
+                            <p>Category 1, 2, or 3 — we classify the loss to IICRC standards before any work begins. Classification determines which specialists enter the property and in what order.</p>
                         </div>
                     </div>
                     <div class="wp-item">
-                        <div class="wp-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="wp-icon"><i class="fas fa-microscope"></i></div>
                         <div>
-                            <h5>Moisture Mapping &amp; Structural Drying</h5>
-                            <p>Thermal imaging and moisture meters locate hidden saturation before mold establishes. Certified ASD drying plans follow.</p>
+                            <h5>Industrial Hygienist Mitigation Plan</h5>
+                            <p>We develop a written mitigation plan in coordination with a certified industrial hygienist — defining scope, safety protocols, and remediation standards before a single tool is picked up.</p>
                         </div>
                     </div>
                     <div class="wp-item">
-                        <div class="wp-icon"><i class="fas fa-shield-virus"></i></div>
+                        <div class="wp-icon"><i class="fas fa-people-arrows"></i></div>
                         <div>
-                            <h5>Mold Remediation (AMRT Certified)</h5>
-                            <p>Applied Microbial Remediation Technician certification means mold is handled correctly — not just hidden behind new drywall.</p>
+                            <h5>Coordinated Specialist Network</h5>
+                            <p>We refer drying, mold remediation, and reconstruction to vetted preferred-network specialists — the right people for each phase, coordinated and overseen by Jason throughout.</p>
                         </div>
                     </div>
                 </div>
@@ -1645,36 +1648,36 @@
                     <div class="a-step">
                         <div class="a-step-num">01</div>
                         <div>
-                            <h4>Emergency Response &amp; Site Assessment</h4>
-                            <p>Jason arrives and performs a full technical assessment — structural, smoke migration, hazmat, and moisture — before your insurance adjuster does. The first assessment sets the tone for the entire claim.</p>
+                            <h4>Immediate Response &amp; Technical Assessment</h4>
+                            <p>Jason arrives personally. He performs a full structural, smoke-migration, and hazmat assessment before the insurance adjuster documents anything. The first assessment frames the entire claim — being there first matters.</p>
                         </div>
                     </div>
                     <div class="a-step">
                         <div class="a-step-num">02</div>
                         <div>
-                            <h4>Policy Review &amp; Claim Strategy</h4>
-                            <p>We review your policy alongside the damage — identifying every applicable coverage, rider, and recoverable item. We build your claim before the carrier builds theirs.</p>
+                            <h4>IICRC Classification &amp; Scope Definition</h4>
+                            <p>We classify the loss to IICRC standards — fire category, water category, affected systems, and air quality risk. Classification determines which specialists the situation requires and what the carrier is obligated to fund.</p>
                         </div>
                     </div>
                     <div class="a-step">
                         <div class="a-step-num">03</div>
                         <div>
-                            <h4>Carrier Negotiation</h4>
-                            <p>As your licensed public adjuster, Jason represents you in all negotiations with the insurance company. He knows the language, the playbook, and where carriers cut corners.</p>
+                            <h4>Mitigation Plan with Industrial Hygienist</h4>
+                            <p>A written mitigation plan is developed in coordination with a certified industrial hygienist. This plan defines what gets done, by whom, in what sequence, and to what standard — before any specialist sets foot on site.</p>
                         </div>
                     </div>
                     <div class="a-step">
                         <div class="a-step-num">04</div>
                         <div>
-                            <h4>Restoration &amp; Reconstruction</h4>
-                            <p>With a Class A GC license, we execute the work — not just oversee it. From demolition and remediation to final finishes, one accountable team from start to finish.</p>
+                            <h4>Preferred Network Coordination &amp; Oversight</h4>
+                            <p>Jason brings in the right specialists from our preferred network for each phase of work. He coordinates the sequence, monitors quality and safety, and stays the single point of accountability throughout — the homeowner never gets handed off.</p>
                         </div>
                     </div>
                     <div class="a-step">
                         <div class="a-step-num">05</div>
                         <div>
-                            <h4>Final Settlement &amp; Close-Out</h4>
-                            <p>We reconcile the completed scope against the final settlement, ensure all supplements are submitted, and don't consider the job done until you're back home and made whole.</p>
+                            <h4>Insurance Advocacy Through Completion</h4>
+                            <p>As your licensed public adjuster, Jason knows exactly when the insurance company is doing right by you — and when they are not. He guides the claim at every stage, supplements what needs to be supplemented, and doesn't close the file until the homeowner is made whole.</p>
                         </div>
                     </div>
                 </div>
@@ -1684,71 +1687,74 @@
     </div>
 </section>
 
-<!-- ══════════════════ TEAM ══════════════════ -->
+<!-- ══════════════════ WHO WE WORK FOR ══════════════════ -->
 <section class="section" id="team">
     <div class="sec">
-        <span class="sec-label">The Team</span>
-        <h2 class="sec-title">The People Accountable<br>to Your Claim</h2>
-        <p class="sec-desc">
-            Every client works directly with our credentialed team — not dispatched crews,
-            not subcontracted adjusters. The people you meet on day one are the people
-            on your job.
-        </p>
 
-        <div class="team-grid">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;" class="advocacy-layout">
 
-            <!-- JASON B -->
-            <div class="team-card">
-                <div class="team-card-body">
-                    <div class="tc-name">Jason Bhattacharya</div>
-                    <div class="tc-title">Founder · Lead Specialist</div>
-                    <p class="tc-bio">
-                        Jason built Virginia Fire &amp; Water from two decades of experience
-                        spanning construction, real estate, and insurance claims. He is one of a
-                        small number of professionals in Virginia — and the country — who holds
-                        an IICRC Triple Master designation alongside an active Class A General
-                        Contractor license and Public Adjuster license simultaneously.
-                        <br><br>
-                        Featured in <em>Richmond BizSense</em> for his unique approach to
-                        bridging the gap between homeowners and insurance carriers, Jason
-                        personally manages every claim Virginia Fire &amp; Water accepts.
-                        He responds to every client communication within the hour.
-                    </p>
-                    <div class="tc-creds">
-                        <span class="tc-badge gold">IICRC Triple Master</span>
-                        <span class="tc-badge gold">MWR · MFR · MTC</span>
-                        <span class="tc-badge">Class A GC</span>
-                        <span class="tc-badge">Public Adjuster</span>
-                        <span class="tc-badge">RE Broker</span>
-                        <span class="tc-badge">Asbestos Supervisor</span>
-                        <span class="tc-badge">WRT · ASD · AMRT</span>
-                        <span class="tc-badge">FSRT · OCT · CCT</span>
-                    </div>
+            <!-- LEFT: Jason bio -->
+            <div>
+                <span class="sec-label">The Expert Behind Every Claim</span>
+                <h2 class="sec-title">Jason Bhattacharya</h2>
+                <p class="sec-desc" style="max-width:100%; margin-bottom:24px;">
+                    Jason takes on a small number of projects each year — not because the work is scarce,
+                    but because every claim he accepts requires his direct, personal involvement
+                    from the first call through the final settlement. There is no hand-off.
+                    No project manager you've never met. No crew that doesn't know your story.
+                </p>
+                <p class="sec-desc" style="max-width:100%; margin-bottom:28px;">
+                    Featured in <em>Richmond BizSense</em> for his unique credential combination,
+                    Jason brings together expertise that typically lives in separate firms — the
+                    technical mastery of an IICRC Triple Master, the construction authority of
+                    a Class A General Contractor, and the insurance fluency of a licensed Public Adjuster.
+                    He knows the process end to end, and he knows exactly where it tends to go wrong.
+                </p>
+                <div class="tc-creds" style="display:flex; flex-wrap:wrap; gap:7px;">
+                    <span class="tc-badge gold">IICRC Triple Master</span>
+                    <span class="tc-badge gold">MWR · MFR · MTC</span>
+                    <span class="tc-badge">Class A GC</span>
+                    <span class="tc-badge">Public Adjuster</span>
+                    <span class="tc-badge">RE Broker</span>
+                    <span class="tc-badge">Asbestos Supervisor</span>
+                    <span class="tc-badge">WRT · ASD · AMRT · FSRT · OCT</span>
                 </div>
             </div>
 
-            <!-- JASON M — placeholder -->
-            <div class="team-card">
-                <div class="team-card-body">
-                    <div class="tc-name">Jason M.</div>
-                    <div class="tc-title">Senior Field Specialist</div>
-                    <p class="tc-bio">
-                        A veteran of the restoration industry, Jason M. brings hands-on
-                        field expertise and carries his own IICRC credentials — giving
-                        Virginia Fire &amp; Water depth at the technical level that larger
-                        firms rarely achieve. He works alongside Jason Bhattacharya on
-                        complex fire and water losses requiring multi-day site presence.
-                        <br><br>
-                        <em style="font-size:0.82rem; color:var(--text-lt);">
-                            <!-- NOTE TO JASON: Confirm correct last name and full credential list for this team member before publishing -->
-                            Full bio and credentials to be confirmed.
-                        </em>
-                    </p>
-                    <div class="tc-creds">
-                        <span class="tc-badge">IICRC Certified</span>
-                        <span class="tc-badge">Field Restoration</span>
-                        <span class="tc-badge">Fire &amp; Water</span>
+            <!-- RIGHT: Homeowner advocacy + preferred network -->
+            <div>
+                <div style="background:var(--dark); border-radius:8px; padding:36px 30px; margin-bottom:20px;">
+                    <div style="font-family:'Oswald',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--gold); margin-bottom:14px;">
+                        <i class="fas fa-gavel" style="margin-right:8px;"></i>Who We Work For
                     </div>
+                    <p style="font-size:1.05rem; color:var(--white); line-height:1.75; font-family:'Oswald',sans-serif; font-weight:400; letter-spacing:0.5px;">
+                        "The homeowner is our client.<br>The insurance company is not."
+                    </p>
+                    <p style="font-size:0.92rem; color:rgba(255,255,255,0.65); line-height:1.7; margin-top:16px;">
+                        By the time most homeowners reach us, their claim is already going sideways —
+                        missed scope, lowball estimates, carrier pressure to settle fast. We step in,
+                        reset the process correctly, and guide the homeowner through every decision
+                        with one priority: what is in their best interest.
+                    </p>
+                    <p style="font-size:0.92rem; color:rgba(255,255,255,0.65); line-height:1.7; margin-top:12px;">
+                        Jason knows at what point an insurance company has stopped acting reasonably.
+                        He knows what levers to pull, what documentation is needed, and how to
+                        move a stalled or underpaid claim forward — without the homeowner having
+                        to fight alone.
+                    </p>
+                </div>
+
+                <div style="background:var(--gray-bg); border:1px solid var(--border); border-left:4px solid var(--fire); border-radius:6px; padding:22px 24px;">
+                    <div style="font-family:'Oswald',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--fire); margin-bottom:10px;">
+                        <i class="fas fa-network-wired" style="margin-right:8px;"></i>Preferred Specialist Network
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-md); line-height:1.7;">
+                        Virginia Fire &amp; Water doesn't do everything in-house — and that's intentional.
+                        Jason has built a trusted network of specialists: structural engineers, industrial
+                        hygienists, remediation contractors, and tradespeople who are extraordinarily
+                        qualified at what they do. The right expert for each phase. Coordinated by Jason.
+                        Accountable to you.
+                    </p>
                 </div>
             </div>
 
@@ -1810,12 +1816,7 @@
 
         <div class="area-layout">
             <div class="map-wrap">
-                <iframe
-                    src="https://maps.google.com/maps?q=7619+Pocoshock+Way+Richmond+VA+23235&output=embed&z=10"
-                    loading="lazy"
-                    allowfullscreen
-                    title="Virginia Fire and Water office — 7619 Pocoshock Way, Richmond VA 23235">
-                </iframe>
+                <div id="leaflet-map" role="img" aria-label="Service area map — Central Virginia counties served by Virginia Fire and Water"></div>
             </div>
 
             <div class="area-right">
@@ -2016,6 +2017,49 @@
 
 <!-- ══════════════════ SCRIPTS ══════════════════ -->
 <script>
+    // ── LEAFLET SERVICE AREA MAP ──
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof L === 'undefined') return;
+
+        const map = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false })
+            .setView([37.30, -77.55], 9);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd', maxZoom: 20
+        }).addTo(map);
+
+        // Service area counties with approx center coords and radius (meters)
+        const serviceAreas = [
+            { name: "Chesterfield County", lat: 37.364, lng: -77.576, r: 19000 },
+            { name: "Richmond City",       lat: 37.541, lng: -77.436, r:  7500 },
+            { name: "Henrico County",      lat: 37.545, lng: -77.295, r: 18000 },
+            { name: "Powhatan County",     lat: 37.547, lng: -77.915, r: 17000 },
+            { name: "Amelia County",       lat: 37.340, lng: -77.990, r: 19000 },
+            { name: "Dinwiddie County",    lat: 37.080, lng: -77.634, r: 21000 },
+            { name: "Colonial Heights",    lat: 37.240, lng: -77.406, r:  4500 },
+            { name: "Petersburg City",     lat: 37.228, lng: -77.402, r:  6500 },
+            { name: "Prince George Co.",   lat: 37.165, lng: -77.260, r: 19000 }
+        ];
+
+        serviceAreas.forEach(area => {
+            L.circle([area.lat, area.lng], {
+                color: '#E84118', fillColor: '#E84118',
+                fillOpacity: 0.18, weight: 2, opacity: 0.7,
+                radius: area.r
+            }).addTo(map).bindTooltip(`<strong>${area.name}</strong>`, { sticky: true });
+        });
+
+        // Office marker
+        const officeIcon = L.divIcon({
+            html: '<div style="background:#E84118;color:#fff;font-size:1.1rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.5);"><i class="fas fa-fire"></i></div>',
+            iconSize: [32, 32], iconAnchor: [16, 16], className: ''
+        });
+        L.marker([37.420, -77.567], { icon: officeIcon })
+            .addTo(map)
+            .bindPopup('<strong>Virginia Fire &amp; Water</strong><br>7619 Pocoshock Way<br>Richmond, VA 23235<br><a href="tel:+18042982673">(804) 298-2673</a>');
+    });
+
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
